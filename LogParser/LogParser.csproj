@@ -70,6 +70,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="LogData" />
       <Folder Include="obj\Debug\net5.0\RazorDeclaration\Features\Pages\Components\LogFileUpload" />
       <Folder Include="obj\Debug\net5.0\RazorDeclaration\Pages" />
       <Folder Include="TmpData" />
