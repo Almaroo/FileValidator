@@ -35,3 +35,8 @@ new CsvLineParserBuilder()
 ```
 
 There is some settings made by default (Including max file size, allowed extensions of file and path to temporarily stored file). You may easily change them via modifying ```appsettings.json``` file.
+
+
+Resources I made use of:
+[Best way to implement MVVM in Blazor](https://github.com/SyncfusionExamples/using-mvvm-pattern-in-blazor-for-state-management)
+[Best way to handle downloading files using JSInterop](https://stackoverflow.com/questions/52683706/how-can-one-generate-and-save-a-file-client-side-using-blazor)
