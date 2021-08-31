@@ -24,13 +24,20 @@
             </tbody>
         </table>
         
-        <btn class="btn btn-block btn-secondary mx-auto w-25" @onclick="DownloadReport" disabled="@(!ViewModel.IsValidated)">Download report</btn>
+        <btn class="btn btn-block btn-secondary mx-auto w-25" @onclick="DownloadReport">Download report</btn>
         <button class="btn btn-block btn-primary mx-auto w-25" disabled="@(ViewModel.IsValidated || ViewModel.IsBusy || !IsValidSize)" @onclick="ValidateFileButtonClickCallback">Validate file</button>
+        
+        @if (ViewModel.IsValidated)
+        {
+            <p>Parsing complete. Found @ViewModel.ValidationErrors.Count errors</p>
+        }
     }
 </section>
 
 @functions {
     void DownloadReport() {
+        if (!ViewModel.IsValidated) return;
+        
         var bytes = System.Text.Encoding.UTF8.GetBytes(string.Join(Environment.NewLine, ViewModel.ValidationErrors));
         FileUtil.SaveAs(js, $"report_{DateTime.Now:yy_MM_ddThh_mm_ss}.txt", bytes);
     }
