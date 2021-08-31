@@ -1,6 +1,6 @@
 # FileValidator
 
-![image](https://user-images.githubusercontent.com/51239869/131505693-2837634b-bc50-4451-8181-6e147ad3b596.png)
+![image](https://user-images.githubusercontent.com/51239869/131512123-634dae89-0f3c-4f87-b3c0-75bdf34c81ed.png)
 
 The goal of this project was to create a simple solution to enable validation of log file.
 
