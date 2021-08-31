@@ -1,0 +1,32 @@
+@using LogParser.Interfaces
+
+@if (ViewModel.ValidationErrors.Count > 0)
+{
+    <section class="w-75 mx-auto">
+        <table class="table table-danger table-striped table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Error Message</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (var i = 1; i <= ViewModel.ValidationErrors.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@ViewModel.ValidationErrors[i - 1]</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </section>
+}
+
+
+@code {
+
+    [CascadingParameter(Name = "ViewModel")]
+    ILogFileUploadViewModel ViewModel { get; set; }
+
+}

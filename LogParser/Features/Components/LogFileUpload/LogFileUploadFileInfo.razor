@@ -1,0 +1,57 @@
+@using LogParser.Interfaces
+<section class="my-xl-5 w-75 mx-auto">
+    <h3>Uploaded File Info</h3>
+
+    <InputFile class="my-lg-5" OnChange="ValidateFileChangeCallback" accept="@string.Join(',', ViewModel.AllowedFileTypes)" disabled="@ViewModel.IsBusy"/>
+    @if (ViewModel.UploadedFile != null)
+    {
+        <table class="table table-striped table-hover">
+            <tbody>
+            <tr class="@(IsValidSize ? "text-success" : "text-danger")">
+                <th scope="row">Size (bytes)</th>
+                <td>@ViewModel.UploadedFile.UploadedFileSize</td>
+            </tr>
+            <tr>
+                <th scope="row">Name</th>
+                <td>@ViewModel.UploadedFile.UploadedFileName</td>
+            </tr>
+            <tr>
+                <th scope="row">Last modification date</th>
+                <td>@ViewModel.UploadedFile.UploadedFileLastModifiedDate.ToString("s")</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-block btn-primary mx-auto w-25" disabled="@(ViewModel.IsValidated || ViewModel.IsBusy || !IsValidSize)" @onclick="ValidateFileButtonClickCallback">Validate file</button>
+    }
+</section>
+
+@code {
+
+    [CascadingParameter(Name = "ViewModel")]
+    ILogFileUploadViewModel ViewModel { get; set; }
+
+    private bool IsValidSize => ViewModel.UploadedFile.UploadedFileSize <= ViewModel.FileMaxSize;
+    
+    private async void ValidateFileButtonClickCallback(MouseEventArgs obj)
+    {
+        await ViewModel.ValidateStoredFile();
+    }
+
+    private async void ValidateFileChangeCallback(InputFileChangeEventArgs e)
+    {
+        ViewModel.UploadedFile = new()
+        {
+            UploadedFileSize = e.File.Size,
+            UploadedFileName = e.File.Name,
+            UploadedFileLastModifiedDate = e.File.LastModified,
+        };
+
+        if (ViewModel.UploadedFile != null && ViewModel.UploadedFile.UploadedFileSize <= ViewModel.FileMaxSize)
+        {
+            await ViewModel.StoreUploadedFile(e.File);
+        }
+    }
+
+
+}

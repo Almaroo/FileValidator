@@ -1,0 +1,713 @@
+2021-08-31 11:04:12.897 +02:00 [INF] Starting web host
+2021-08-31 11:04:13.212 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:06:36.486 +02:00 [INF] Starting web host
+2021-08-31 11:06:36.693 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:13:08.117 +02:00 [INF] Starting web host
+2021-08-31 11:13:08.317 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:14:28.852 +02:00 [INF] Starting web host
+2021-08-31 11:14:29.045 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:15:07.592 +02:00 [INF] Starting web host
+2021-08-31 11:19:26.939 +02:00 [INF] Starting web host
+2021-08-31 11:22:17.695 +02:00 [INF] Starting web host
+2021-08-31 11:22:17.899 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:22:35.705 +02:00 [INF] Starting web host
+2021-08-31 11:22:39.661 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:22:48.631 +02:00 [INF] Starting web host
+2021-08-31 11:29:47.063 +02:00 [INF] Starting web host
+2021-08-31 11:29:47.688 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 11:59:31.221 +02:00 [INF] Starting web host
+2021-08-31 11:59:31.415 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 12:07:56.004 +02:00 [INF] Starting web host
+2021-08-31 12:07:56.171 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 12:11:39.753 +02:00 [INF] Starting web host
+2021-08-31 12:16:11.291 +02:00 [INF] Starting web host
+2021-08-31 12:16:11.449 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 12:18:06.583 +02:00 [INF] Starting web host
+2021-08-31 12:20:35.914 +02:00 [INF] Starting web host
+2021-08-31 12:20:48.637 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.) (Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.ILogFileUploadViewModel Lifetime: Scoped ImplementationType: LogParser.Features.Pages.LogFileUpload.LogFileUploadViewModel': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: LogParser.Interfaces.IFileManagementService Lifetime: Singleton ImplementationType: LogParser.Services.FileManagementService': Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'LogParser.Configuration.FileManagementSettings' while attempting to activate 'LogParser.Services.FileManagementService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2021-08-31 13:06:00.125 +02:00 [INF] Starting web host
+2021-08-31 13:10:24.722 +02:00 [INF] Starting web host
+2021-08-31 13:10:24.890 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 23
+2021-08-31 13:14:18.917 +02:00 [INF] Starting web host
+2021-08-31 13:14:19.090 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 24
+2021-08-31 13:15:58.534 +02:00 [INF] Starting web host
+2021-08-31 13:15:58.698 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 24
+2021-08-31 13:21:05.729 +02:00 [INF] Starting web host
+2021-08-31 13:21:05.886 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 24
+2021-08-31 13:25:53.730 +02:00 [INF] Starting web host
+2021-08-31 13:25:53.916 +02:00 [FTL] Host terminated unexpectedly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: Serilog.ILogger Lifetime: Singleton ImplementationType: Serilog.Core.Logger': A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+ ---> System.InvalidOperationException: A suitable constructor for type 'Serilog.Core.Logger' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at LogParser.Program.Main(String[] args) in C:\Users\mfxba\OneDrive\Dokumenty\LogParser\LogParser\Program.cs:line 24
+2021-08-31 13:26:20.324 +02:00 [INF] Starting web host
+2021-08-31 13:27:24.203 +02:00 [INF] Starting web host
+2021-08-31 13:27:24.949 +02:00 [INF] HTTP GET / responded 200 in 203.3715 ms
+2021-08-31 13:27:24.999 +02:00 [INF] HTTP GET /css/site.css responded 200 in 22.5356 ms
+2021-08-31 13:27:24.999 +02:00 [INF] HTTP GET /LogParser.styles.css responded 200 in 22.5356 ms
+2021-08-31 13:27:25.005 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 200 in 28.0724 ms
+2021-08-31 13:27:25.005 +02:00 [INF] HTTP GET /_framework/blazor.server.js responded 200 in 28.3188 ms
+2021-08-31 13:27:25.029 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 200 in 6.3619 ms
+2021-08-31 13:27:25.070 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 14.8204 ms
+2021-08-31 13:27:41.211 +02:00 [INF] HTTP GET /css/site.css responded 304 in 2.2221 ms
+2021-08-31 13:27:41.211 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 2.0633 ms
+2021-08-31 13:27:41.211 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 2.1096 ms
+2021-08-31 13:27:41.211 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 2.5048 ms
+2021-08-31 13:27:41.295 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css.map responded 200 in 11.8756 ms
+2021-08-31 13:27:44.424 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css.map responded 200 in 2.9538 ms
+2021-08-31 13:28:30.046 +02:00 [INF] HTTP GET / responded 200 in 5.1988 ms
+2021-08-31 13:28:30.065 +02:00 [INF] HTTP GET /css/site.css responded 304 in 0.1940 ms
+2021-08-31 13:28:30.065 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 0.2118 ms
+2021-08-31 13:28:30.065 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 0.2047 ms
+2021-08-31 13:28:30.065 +02:00 [INF] HTTP GET /_blazor?id=2DjiN-9HUskaX45hlFBx5A responded 101 in 64961.6332 ms
+2021-08-31 13:28:30.065 +02:00 [INF] HTTP GET /_framework/blazor.server.js responded 304 in 0.0608 ms
+2021-08-31 13:28:30.067 +02:00 [INF] HTTP POST /_blazor/disconnect responded 200 in 16.2812 ms
+2021-08-31 13:28:30.092 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 0.2814 ms
+2021-08-31 13:28:30.111 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 0.2526 ms
+2021-08-31 13:28:30.136 +02:00 [INF] HTTP GET /favicon.ico responded 200 in 3.5932 ms
+2021-08-31 13:28:34.869 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 0.1876 ms
+2021-08-31 13:28:34.869 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 0.1254 ms
+2021-08-31 13:28:34.869 +02:00 [INF] HTTP GET /css/site.css responded 304 in 0.1816 ms
+2021-08-31 13:28:34.870 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 0.1793 ms
+2021-08-31 13:28:34.957 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css.map responded 200 in 4.2996 ms
+2021-08-31 13:29:14.852 +02:00 [INF] Starting web host
+2021-08-31 13:29:15.434 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 58.1595 ms
+2021-08-31 13:29:15.575 +02:00 [INF] HTTP GET / responded 200 in 201.4119 ms
+2021-08-31 13:29:15.593 +02:00 [INF] HTTP GET /_framework/blazor.server.js responded 304 in 4.6201 ms
+2021-08-31 13:29:15.593 +02:00 [INF] HTTP GET /css/site.css responded 304 in 4.4325 ms
+2021-08-31 13:29:15.593 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 4.4562 ms
+2021-08-31 13:29:15.593 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 4.6406 ms
+2021-08-31 13:29:15.617 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 0.1795 ms
+2021-08-31 13:29:15.664 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 0.9462 ms
+2021-08-31 13:30:05.118 +02:00 [INF] Starting web host
+2021-08-31 13:30:13.833 +02:00 [INF] HTTP GET / responded 200 in 439.8149 ms
+2021-08-31 13:30:13.879 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 27.7631 ms
+2021-08-31 13:30:13.879 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 27.5276 ms
+2021-08-31 13:30:13.879 +02:00 [INF] HTTP GET /_framework/blazor.server.js responded 304 in 24.1713 ms
+2021-08-31 13:30:13.879 +02:00 [INF] HTTP GET /css/site.css responded 304 in 27.7556 ms
+2021-08-31 13:30:13.893 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 0.2384 ms
+2021-08-31 13:30:13.932 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 17.9731 ms
+2021-08-31 13:30:14.616 +02:00 [INF] HTTP POST /_blazor/disconnect responded 200 in 31.7172 ms
+2021-08-31 13:30:15.376 +02:00 [INF] HTTP POST /_blazor/disconnect responded 200 in 0.3293 ms
+2021-08-31 13:35:11.238 +02:00 [INF] Starting web host
+2021-08-31 13:35:12.413 +02:00 [INF] HTTP GET / responded 200 in 212.9850 ms
+2021-08-31 13:35:12.439 +02:00 [INF] HTTP GET /LogParser.styles.css responded 304 in 3.9840 ms
+2021-08-31 13:35:12.439 +02:00 [INF] HTTP GET /css/site.css responded 304 in 3.8947 ms
+2021-08-31 13:35:12.439 +02:00 [INF] HTTP GET /css/bootstrap/bootstrap.min.css responded 304 in 3.7224 ms
+2021-08-31 13:35:12.439 +02:00 [INF] HTTP GET /_framework/blazor.server.js responded 304 in 3.9539 ms
+2021-08-31 13:35:12.463 +02:00 [INF] HTTP GET /css/open-iconic/font/css/open-iconic-bootstrap.min.css responded 304 in 0.1766 ms
+2021-08-31 13:35:12.521 +02:00 [INF] HTTP POST /_blazor/negotiate?negotiateVersion=1 responded 200 in 17.0762 ms

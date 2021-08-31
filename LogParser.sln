@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogParser", "LogParser\LogParser.csproj", "{A7FE66D0-4CF1-4182-B71E-49D8109A8690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogParser.Core", "LogParser.Core\LogParser.Core.csproj", "{BAA9DF3D-AD4F-4D33-B436-5527488CDD50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7FE66D0-4CF1-4182-B71E-49D8109A8690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FE66D0-4CF1-4182-B71E-49D8109A8690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FE66D0-4CF1-4182-B71E-49D8109A8690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FE66D0-4CF1-4182-B71E-49D8109A8690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAA9DF3D-AD4F-4D33-B436-5527488CDD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA9DF3D-AD4F-4D33-B436-5527488CDD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA9DF3D-AD4F-4D33-B436-5527488CDD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA9DF3D-AD4F-4D33-B436-5527488CDD50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

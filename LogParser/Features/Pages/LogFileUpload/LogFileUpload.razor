@@ -1,0 +1,38 @@
+@page "/"
+@inject ILogFileUploadViewModel _viewModel
+@using LogParser.Interfaces
+@using System.ComponentModel
+@using LogParser.Features.Components.LogFileUpload
+@implements IDisposable
+
+
+<section>
+    <h1>FileParser v1.0 Alpha</h1>
+    
+    <CascadingValue Value="_viewModel" Name="ViewModel">
+        <LogFileUploadFileInfo />
+        <LogFileUploadResultTable />
+    </CascadingValue>
+
+</section>
+
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        _viewModel.PropertyChanged += async (sender, e) => { await InvokeAsync(() => { StateHasChanged(); }); };
+        await base.OnInitializedAsync();
+    }
+
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() => { StateHasChanged(); });
+    }
+
+    public void Dispose()
+    {
+        _viewModel.Dispose();
+        _viewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+}

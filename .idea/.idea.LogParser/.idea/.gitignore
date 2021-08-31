@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/contentModel.xml
+/modules.xml
+/.idea.LogParser.iml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Users\mfxba\OneDrive\Dokumenty\LogParser\.idea\.idea.LogParser\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
