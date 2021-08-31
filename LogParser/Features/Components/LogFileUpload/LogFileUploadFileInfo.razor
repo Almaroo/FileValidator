@@ -1,4 +1,6 @@
 @using LogParser.Interfaces
+@using LogParser.Helpers
+@inject IJSRuntime js
 <section class="my-xl-5 w-75 mx-auto">
     <h3>Uploaded File Info</h3>
 
@@ -21,10 +23,18 @@
             </tr>
             </tbody>
         </table>
-
+        
+        <btn class="btn btn-block btn-secondary mx-auto w-25" @onclick="DownloadReport" disabled="@(!ViewModel.IsValidated)">Download report</btn>
         <button class="btn btn-block btn-primary mx-auto w-25" disabled="@(ViewModel.IsValidated || ViewModel.IsBusy || !IsValidSize)" @onclick="ValidateFileButtonClickCallback">Validate file</button>
     }
 </section>
+
+@functions {
+    void DownloadReport() {
+        var bytes = System.Text.Encoding.UTF8.GetBytes(string.Join(Environment.NewLine, ViewModel.ValidationErrors));
+        FileUtil.SaveAs(js, $"report_{DateTime.Now:yy_MM_ddThh_mm_ss}.txt", bytes);
+    }
+}
 
 @code {
 
